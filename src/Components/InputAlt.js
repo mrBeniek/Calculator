@@ -1,10 +1,10 @@
 import React from 'react';
-export class InputAlt extends React.Component {
-  render() {
+export const InputAlt = (props) => {
+ 
     return (<div>
       <div id="input-alt">
-        {this.props.altInput}
+        {props.altInput}
       </div>
     </div>);
-  }fsdfsfd
+  
 }

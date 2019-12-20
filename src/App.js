@@ -11,7 +11,7 @@ class App extends React.Component {
       input: 0,
       altInput: '',
     }
-    
+  
     this.handleClick = this.handleClick.bind(this);
     this.handleClear = this.handleClear.bind(this);
     this.handleOperator = this.handleOperator.bind(this);
@@ -36,29 +36,31 @@ class App extends React.Component {
       if (val == "-" && this.state.altInput[this.state.altInput.length - 1] == "-" ) {return}
       if (val == "-") {
         this.setState ({
-          altInput: this.state.altInput + val
+          altInput: this.state.altInput + " " + val + " "
         })
         return
       }
       if (val !== "-" && isNaN(this.state.altInput[this.state.altInput.length - 2])) {
         this.setState ({
-          altInput: this.state.altInput.slice(0, (this.state.altInput.length - 2)) + val
+          altInput: this.state.altInput.slice(0, (this.state.altInput.length - 2)) + " " + val + " "
         })
         return
       }
       this.setState ({
-        altInput: this.state.altInput.slice(0, (this.state.altInput.length - 1)) + val
+        altInput: this.state.altInput.slice(0, (this.state.altInput.length - 1)) + " " + val + " "
         
       })
       return
     }
    this.setState ({
-      altInput: this.state.altInput + this.state.input + val,
+      altInput: this.state.altInput + this.state.input + " " + val + " ",
       input: 0
     })
   }
   
   handleResult() {
+    let resultArray = [];
+
     this.setState ({
       input: eval((this.state.altInput + this.state.input)),
       altInput: ''

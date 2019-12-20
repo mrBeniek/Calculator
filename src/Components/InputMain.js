@@ -1,11 +1,11 @@
 import React from 'react';
-export class InputMain extends React.Component {
-  render() {
+export const InputMain = (props) => {
+  
     return (<div>
       <div id='input-main'>
-        {this.props.mainInput}
+        {props.mainInput}
       </div>
 
     </div>);
-  }
+  
 }
