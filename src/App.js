@@ -35,7 +35,7 @@ class App extends React.Component {
     if (this.state.input == 0) {
       if (val == "-" && this.state.altInput[this.state.altInput.length - 1] == "-" ) {return}
       if (val == "-" && this.state.altInput[this.state.altInput.length - 2] == "-" ) {return}
-      if (val == "-" && !isNaN(this.state.altInput[this.state.altInput.length - 1])) {
+      if (val == "-" && isNaN(this.state.altInput[this.state.altInput.length - 2])) {
         this.setState ({
           altInput: this.state.altInput + " " + val
         })
@@ -60,10 +60,40 @@ class App extends React.Component {
   }
   
   handleResult() {
-    let resultArray = [];
+    let result = this.state.altInput + this.state.input;
+
+    while (isNaN(parseInt(result[result.length - 1]))) {
+      result = result.slice(0, result.length - 1)
+    }
+
+    let resultArr = result.split(' ');
+
+    while (resultArr.indexOf("*") > 0) {
+      let ind = resultArr.indexOf("*");
+      let res = resultArr[ind-1] * resultArr[ind+1];
+      resultArr.splice(ind-1, 3, res)
+    };
+
+    while (resultArr.indexOf("/") > 0) {
+      let ind = resultArr.indexOf("/");
+      let res = resultArr[ind-1] / resultArr[ind+1];
+      resultArr.splice(ind-1, 3, res)
+    };
+
+    while (resultArr.indexOf("+") > 0) {
+      let ind = resultArr.indexOf("+");
+      let res = resultArr[ind-1] + resultArr[ind+1];
+      resultArr.splice(ind-1, 3, res)
+    };
+
+    while (resultArr.indexOf("-") > 0) {
+      let ind = resultArr.indexOf("-");
+      let res = resultArr[ind-1] - resultArr[ind+1];
+      resultArr.splice(ind-1, 3, res)
+    };
 
     this.setState ({
-      input: eval((this.state.altInput + this.state.input)),
+      input: resultArr[0],
       altInput: ''
     })
   }
