@@ -33,21 +33,21 @@ class App extends React.Component {
   handleOperator(val) {
     
     if (this.state.input == 0) {
-      if (val == "-" && this.state.altInput[this.state.altInput.length - 1] == "-" ) {return}
-      if (val == "-") {
+      if (val == "-" && this.state.altInput[this.state.altInput.length - 2] == "-" ) {return}
+      if (val == "-" && !isNaN(this.state.altInput[this.state.altInput.length - 1])) {
         this.setState ({
-          altInput: this.state.altInput + " " + val + " "
+          altInput: this.state.altInput + " " + val
         })
         return
       }
-      if (val !== "-" && isNaN(this.state.altInput[this.state.altInput.length - 2])) {
+      if (val !== "-" && isNaN(this.state.altInput[this.state.altInput.length - 4])) {
         this.setState ({
-          altInput: this.state.altInput.slice(0, (this.state.altInput.length - 2)) + " " + val + " "
+          altInput: this.state.altInput.slice(0, (this.state.altInput.length - 5)) + " " + val + " "
         })
         return
       }
       this.setState ({
-        altInput: this.state.altInput.slice(0, (this.state.altInput.length - 1)) + " " + val + " "
+        altInput: this.state.altInput.slice(0, (this.state.altInput.length - 2)) + " " + val + " "
         
       })
       return
