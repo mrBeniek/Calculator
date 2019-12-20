@@ -62,12 +62,13 @@ class App extends React.Component {
   handleResult() {
     let result = this.state.altInput + this.state.input;
 
-    while (isNaN(parseInt(result[result.length - 1]))) {
-      result = result.slice(0, result.length - 1)
-    }
-
     let resultArr = result.split(' ');
 
+    while (isNaN(parseInt(resultArr[resultArr.length - 1]))) {
+      resultArr = resultArr.slice(0, -1)
+    }
+    console.log(resultArr);
+    
     while (resultArr.indexOf("*") > 0) {
       let ind = resultArr.indexOf("*");
       let res = resultArr[ind-1] * resultArr[ind+1];
@@ -82,7 +83,7 @@ class App extends React.Component {
 
     while (resultArr.indexOf("+") > 0) {
       let ind = resultArr.indexOf("+");
-      let res = resultArr[ind-1] + resultArr[ind+1];
+      let res = Number(resultArr[ind-1]) + Number(resultArr[ind+1]);
       resultArr.splice(ind-1, 3, res)
     };
 
