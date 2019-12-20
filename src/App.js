@@ -33,6 +33,7 @@ class App extends React.Component {
   handleOperator(val) {
     
     if (this.state.input == 0) {
+      if (val == "-" && this.state.altInput[this.state.altInput.length - 1] == "-" ) {return}
       if (val == "-" && this.state.altInput[this.state.altInput.length - 2] == "-" ) {return}
       if (val == "-" && !isNaN(this.state.altInput[this.state.altInput.length - 1])) {
         this.setState ({
