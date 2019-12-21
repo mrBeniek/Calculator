@@ -29,6 +29,7 @@ export class Numbers extends React.Component {
     this.props.handleClick("9");
   }
   handleClick0 = () => {
+    if (this.props.mainInput !== 0)
     this.props.handleClick("0");
   }
   handleClickDot = () => {

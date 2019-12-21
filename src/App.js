@@ -15,6 +15,7 @@ class App extends React.Component {
   } 
   
   handleClick = (val) => {
+    console.log(this.state.input);
     if (this.state.resetStatus) {
       if (val === ".") {
         this.setState ({
@@ -46,11 +47,11 @@ class App extends React.Component {
   handleOperator = (val) => {
     if (this.state.resetStatus) {
       this.setState ({
-        input: false
+        resetStatus: false
       })
     }
     console.log("altinput:" + this.state.altInput)
-    if (this.state.input == 0) {
+    if (this.state.input === 0) {
       if (val === "-" && this.state.altInput[this.state.altInput.length - 1] === "-" ) {return}
       if (val === "-" && this.state.altInput[this.state.altInput.length - 2] === "-" ) {return}
       if (val === "-" && isNaN(this.state.altInput[this.state.altInput.length - 2])) {
@@ -113,11 +114,19 @@ class App extends React.Component {
       resultArr.splice(ind-1, 3, res)
     };
 
-    this.setState ({
-      input: resultArr[0],
-      altInput: '',
-      resetStatus: true
-    })
+    if (resultArr[0] == Infinity) {
+      this.setState ({
+        input: "Cannot Divide By Zero",
+        altInput: '',
+        resetStatus: true
+      }) 
+    } else
+
+      this.setState ({
+        input: resultArr[0],
+        altInput: '',
+       resetStatus: true
+      })
   }
  
   handleClear = () => {
