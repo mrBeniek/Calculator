@@ -10,16 +10,29 @@ class App extends React.Component {
     this.state = {
       input: 0,
       altInput: '',
+      resetStatus: false,
+    }    
+  } 
+  
+  handleClick = (val) => {
+    if (this.state.resetStatus) {
+      if (val === ".") {
+        this.setState ({
+          input: "0."
+        })
+      } else {
+        this.setState ({
+          input: val
+        })
+      }
+
+      this.setState ({
+        resetStatus: false
+      })
+
+      return
     }
-  
-    this.handleClick = this.handleClick.bind(this);
-    this.handleClear = this.handleClear.bind(this);
-    this.handleOperator = this.handleOperator.bind(this);
-    this.handleResult = this.handleResult.bind(this);
-  }
-  
-  
-  handleClick(val) {
+
     if (this.state.input === 0 && val !== ".") {      
       this.setState ({
         input: val
@@ -30,7 +43,12 @@ class App extends React.Component {
     })
   }
   
-  handleOperator(val) {
+  handleOperator = (val) => {
+    if (this.state.resetStatus) {
+      this.setState ({
+        input: false
+      })
+    }
     console.log("altinput:" + this.state.altInput)
     if (this.state.input == 0) {
       if (val === "-" && this.state.altInput[this.state.altInput.length - 1] === "-" ) {return}
@@ -60,7 +78,7 @@ class App extends React.Component {
     })
   }
   
-  handleResult() {
+  handleResult = () => {
     let result = this.state.altInput + this.state.input;
     console.log("result:" + result);
 
@@ -97,11 +115,12 @@ class App extends React.Component {
 
     this.setState ({
       input: resultArr[0],
-      altInput: ''
+      altInput: '',
+      resetStatus: true
     })
   }
  
-  handleClear() {
+  handleClear = () => {
     this.setState ({
       input: 0,
       altInput: ''

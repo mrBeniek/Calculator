@@ -1,9 +1,6 @@
 import React from 'react';
 export class Numbers extends React.Component {
-  constructor(props) {
-    super(props);
-   
-  }
+  
   handleClick1 = () => {
     this.props.handleClick("1");
   }
