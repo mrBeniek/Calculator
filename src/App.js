@@ -31,24 +31,25 @@ class App extends React.Component {
   }
   
   handleOperator(val) {
-    
+    console.log("altinput:" + this.state.altInput)
     if (this.state.input == 0) {
-      if (val == "-" && this.state.altInput[this.state.altInput.length - 1] == "-" ) {return}
-      if (val == "-" && this.state.altInput[this.state.altInput.length - 2] == "-" ) {return}
-      if (val == "-" && isNaN(this.state.altInput[this.state.altInput.length - 2])) {
+      if (val === "-" && this.state.altInput[this.state.altInput.length - 1] === "-" ) {return}
+      if (val === "-" && this.state.altInput[this.state.altInput.length - 2] === "-" ) {return}
+      if (val === "-" && isNaN(this.state.altInput[this.state.altInput.length - 2])) {
         this.setState ({
-          altInput: this.state.altInput + " " + val
+          altInput: this.state.altInput + val
         })
         return
       }
-      if (val !== "-" && isNaN(this.state.altInput[this.state.altInput.length - 4])) {
+      if (val !== "-" && isNaN(this.state.altInput[this.state.altInput.length - 3])) {
         this.setState ({
-          altInput: this.state.altInput.slice(0, (this.state.altInput.length - 5)) + " " + val + " "
+          altInput: this.state.altInput.slice(0, (this.state.altInput.length - 4)) + " " + val + " "
         })
+        
         return
       }
       this.setState ({
-        altInput: this.state.altInput.slice(0, (this.state.altInput.length - 2)) + " " + val + " "
+        altInput: this.state.altInput.slice(0, (this.state.altInput.length - 3)) + " " + val + " "
         
       })
       return
@@ -61,6 +62,7 @@ class App extends React.Component {
   
   handleResult() {
     let result = this.state.altInput + this.state.input;
+    console.log("result:" + result);
 
     let resultArr = result.split(' ');
 
