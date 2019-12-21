@@ -2,49 +2,39 @@ import React from 'react';
 export class Numbers extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick1 = this.handleClick1.bind(this);
-    this.handleClick2 = this.handleClick2.bind(this);
-    this.handleClick3 = this.handleClick3.bind(this);
-    this.handleClick4 = this.handleClick4.bind(this);
-    this.handleClick5 = this.handleClick5.bind(this);
-    this.handleClick6 = this.handleClick6.bind(this);
-    this.handleClick7 = this.handleClick7.bind(this);
-    this.handleClick8 = this.handleClick8.bind(this);
-    this.handleClick9 = this.handleClick9.bind(this);
-    this.handleClick0 = this.handleClick0.bind(this);
-    this.handleClickDot = this.handleClickDot.bind(this);
+   
   }
-  handleClick1() {
+  handleClick1 = () => {
     this.props.handleClick("1");
   }
-  handleClick2() {
+  handleClick2 = () => {
     this.props.handleClick("2");
   }
-  handleClick3() {
+  handleClick3 = () => {
     this.props.handleClick("3");
   }
-  handleClick4() {
+  handleClick4 = () => {
     this.props.handleClick("4");
   }
-  handleClick5() {
+  handleClick5 = () => {
     this.props.handleClick("5");
   }
-  handleClick6() {
+  handleClick6 = () => {
     this.props.handleClick("6");
   }
-  handleClick7() {
+  handleClick7 = () => {
     this.props.handleClick("7");
   }
-  handleClick8() {
+  handleClick8 = () => {
     this.props.handleClick("8");
   }
-  handleClick9() {
+  handleClick9 = () => {
     this.props.handleClick("9");
   }
-  handleClick0() {
+  handleClick0 = () => {
     this.props.handleClick("0");
   }
-  handleClickDot() {
+  handleClickDot = () => {
     if (/[.]/.test(this.props.mainInput) == false)
       this.props.handleClick(".");
   }
