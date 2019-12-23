@@ -1,13 +1,12 @@
 @font-face {
- font-family: 'digitalism';
- src: url('./Assets/digitalism.ttf') format('ttf'); 
+ font-family: digital;
+ src: url('./Assets/digital-7.ttf') format('ttf'); 
 } 
 
-// src: url('/Fonts/CaviarDreams.ttf') format('ttf');
 
 body {
   background-color: #546E7A;
-  font-family: 'digitalism';
+  font-family: Roboto;
 }
 
 #main {
@@ -28,7 +27,7 @@ body {
   box-sizing: border-box;
   border: solid black 5px;
   border-radius: 3px;
-  font-family: 'digitalism';
+  font-family: digital;
   margin: 2px;
   min-width: 600px;
   min-height: 130px;
