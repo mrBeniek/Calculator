@@ -51,7 +51,8 @@ class App extends React.Component {
       })
     }
     console.log("altinput:" + this.state.altInput)
-    if (this.state.input === 0) {
+    if (this.state.input == 0) {
+      if (this.state.altInput === '') {return}
       if (val === "-" && this.state.altInput[this.state.altInput.length - 1] === "-" ) {return}
       if (val === "-" && this.state.altInput[this.state.altInput.length - 2] === "-" ) {return}
       if (val === "-" && isNaN(this.state.altInput[this.state.altInput.length - 2])) {
