@@ -117,16 +117,8 @@ class App extends React.Component {
       resultArr.splice(ind-1, 3, res)
     };
 
-    if (resultArr[0] == Infinity) {
       this.setState ({
-        input: "Cannot Divide By Zero",
-        altInput: '',
-        resetStatus: true
-      }) 
-    } else
-
-      this.setState ({
-        input: resultArr[0],
+        input: Math.round(1000000000000 * resultArr[0]) / 1000000000000,
         altInput: '',
        resetStatus: true
       })
