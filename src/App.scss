@@ -3,19 +3,30 @@
  src: url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff") format("woff"),
 } 
 
+@font-face {
+font-family: "Sucrose Bold Two";
+ src: url("//db.onlinewebfonts.com/t/467526db1f6b8c1f5f3b31f34bb1b8a7.ttf") format("truetype")
+}
+
+
 
 body {
   background-color: #546E7A;
   font-family: Roboto;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
 #main {
+  
   border: solid black 5px;
+  border-radius: 3px;
   margin: auto;
-  margin-top: 100px;
   justify-content: center;
-  min-height: 645px;
-  width: auto;
+  padding-bottom: 5px;
+  width: 100%;
   max-width: 630px;
   user-select: none;
   
@@ -26,7 +37,7 @@ body {
   background-color: #FAFAFA;
   box-sizing: border-box;
   border: solid black 5px;
-  border-radius: 3px;
+  border-radius: 5px;
   font-family: digital;
   margin: 2px;
   min-width: 600px;
@@ -37,14 +48,14 @@ body {
 
 #input-alt {
   
-  font-size: 30px;
+  font-size: 2.2em;
   margin-right: 10px;
   min-height: 37px;
   
 }
 
 #input-main {
-  font-size: 70px;
+  font-size: 6em;
   margin-right: 10px;
   margin-top: 10px;
 }
@@ -52,7 +63,7 @@ body {
 #buttons-container {
   display: flex;
   margin-left: 5px;
-  max-width: 600px;
+  max-width: 620px;
   width: 100%;
   max-height: 490px;
   height: 100%;
@@ -83,42 +94,51 @@ body {
 }
 
 .panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #BBDEFB;
-  border-radius: 20px;
+  border-radius: 5px;
+  font-family: "Sucrose Bold Two";
   width: 120px;
   height: 120px;
   margin: 3px;
   box-sizing: border-box;
   border: black solid 5px;
+  &:hover {
+   transform: scale(1.1, 1.1)
+  }
 }
 
 .panel-op {
-  background-color: #FFCDD2;
-  border-radius: 20px;
-  margin: 3px;
-  width: 120px;
-  height: 120px;
-  box-sizing: border-box;
-  border: black solid 5px;
+  @extend .panel;
+  background-color: #FFCDD2; 
 }
 
 .panel-big-horizon {
-  background-color: #BBDEFB;
-  box-sizing: border-box;
-  border: black solid 5px;
-  border-radius: 20px;
+  @extend .panel;
   width: 246px;
   height: 120px;
-  margin: 3px;
 }
 
 .panel-big-vert {
+  @extend .panel;
   background-color: #FFCDD2;
-  box-sizing: border-box;
-  border: black solid 5px;
-  border-radius: 20px;
   width: 120px;
   height: 243px;
   margin: 3px;
+ 
+}
+
+@media only screen and (max-width: 666px) {
+  #main {
+   transform: scale(0.75, 0.75) 
+  }
+}
+
+@media only screen and (max-width: 525px) {
+  #main {
+   transform: scale(0.5, 0.5) 
+  }
 }
 
