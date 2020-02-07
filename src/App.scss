@@ -63,11 +63,12 @@ body {
 }
 
 #input-main {
- background: yellow;
+ background: red;
   font-size: 5.77em;
   margin-right: 10px;
   margin-left: 10px;
   margin-top: 10px;
+  
   overflow: hidden;
 }
 
@@ -177,13 +178,14 @@ body {
   #display {
     border: solid black 5px;
     min-width: 320px;
-    height: 200px;
+    height: 140px;
     
   }
 
   #input-main {
     margin-top: 5px;
     font-size: 5em;
+    height: 80px;
   }
   
   .row {
