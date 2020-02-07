@@ -35,6 +35,9 @@ body {
 
 
 #display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: #FAFAFA;
   box-sizing: border-box;
   border: solid black 8px;
@@ -48,7 +51,7 @@ body {
 }
 
 #input-alt { 
- // background: green;
+ background: green;
   font-size: 2.2em;
   margin-right: 10px;
   margin-left: 10px;
@@ -60,7 +63,7 @@ body {
 }
 
 #input-main {
- //background: yellow;
+ background: yellow;
   font-size: 5.77em;
   margin-right: 10px;
   margin-left: 10px;
