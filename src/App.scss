@@ -23,6 +23,7 @@ body {
   
   border: solid black 8px;
   border-radius: 3px;
+ 
   margin: auto;
   justify-content: center;
   padding-bottom: 5px;
@@ -43,7 +44,6 @@ body {
   margin: 3px;
   min-width: 600px;
   min-height: 130px;
-  height: 100%;
   text-align: right;
 }
 
@@ -69,6 +69,7 @@ body {
 
 #buttons-container {
   display: flex;
+  justify-content: center;
   max-width: 620px;
   width: 100%;
   max-height: 490px;
@@ -138,14 +139,60 @@ body {
 }
 
 @media only screen and (max-width: 666px) {
-  #main {
-   transform: scale(0.75, 0.75) 
+  #display {
+    min-width: 400px;
+    min-height: 90px;
+  }
+  
+  .row {
+    width: 279px;
+    height: 93px;
+  }
+  .panel {
+    width: 90px;
+    height: 90px;
+  }
+
+  .panel-big-horizon {
+    width: 186px;
+  }
+
+  .panel-big-vert {
+    height: 183px;
   }
 }
 
 @media only screen and (max-width: 525px) {
   #main {
-   transform: scale(0.5, 0.5) 
+    border: none;
+    box-sizing: border-box;
+    padding-bottom: 0px; 
+    max-height: 500px;
+  }
+
+  #display {
+    border: solid black 5px;
+    min-width: 320px;
+    min-height: 90px;
+  }
+  
+  .row {
+    width: 219px;
+    height: 73px;
+  }
+  .panel {
+  
+    width: 70px;
+    height: 70px;
+    
+  }
+
+  .panel-big-horizon {
+    width: 146px;
+  }
+
+  .panel-big-vert {
+    height: 143px;
   }
 }
 
