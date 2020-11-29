@@ -81,14 +81,12 @@ class App extends React.Component {
   
   handleResult = () => {
     let result = this.state.altInput + this.state.input;
-    console.log("result:" + result);
 
     let resultArr = result.split(' ');
 
     while (isNaN(parseInt(resultArr[resultArr.length - 1]))) {
       resultArr = resultArr.slice(0, -1)
     }
-    console.log(resultArr);
     
     while (resultArr.indexOf("*") > 0) {
       let ind = resultArr.indexOf("*");
